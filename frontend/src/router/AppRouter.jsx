@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
+import App from "../App.jsx";
 import HomePage from "../pages/HomePage";
 import TeamSignup from "../pages/TeamSignup.jsx";
 import AdminDashboard from "../pages/admin/AdminDashboard";
@@ -19,69 +20,66 @@ export default function AppRouter() {
     <Routes>
 
       {/* Main page Routes */}
-      <Route
-        path="/"
-        element={<HomePage />}
-      />
-      <Route
-        path="/team-signup"
-        element={<TeamSignup />}
-      />
+      <Route path="/" element={<App />}>
 
-      {/* Admin Routes */}
-      <Route
-        path="/admin/dashboard"
-        element={<AdminDashboard />}
-      />
+        <Route index element={<HomePage />} />
 
-      <Route
-        path="/admin/questions"
-        element={<UpdateQuestions />}
-      />
+        <Route path="team-signup" element={<TeamSignup />} />
 
-      <Route
-        path="/admin/results"
-        element={<RoundWiseResults />}
-      />
+        {/* Admin Routes */}
+        <Route
+          path="admin/dashboard"
+          element={<AdminDashboard />}
+        />
 
-      {/* Round-1 */}
-      <Route
-        path="/round-one"
-        element={<RoundOne />}
-      />
-      {/* Round-2 */}
-      <Route
-        path="/round-two-ques-one"
-        element={<QuesOne />}
-      />
-      <Route
-        path="/round-two-ques-one"
-        element={<QuesTwo />}
-      />
+        <Route
+          path="admin/questions"
+          element={<UpdateQuestions />}
+        />
 
-      {/* Round-3 */}
-      <Route
-        path="/round-three"
-        element={<RoundThree />}
-      />
+        <Route
+          path="admin/results"
+          element={<RoundWiseResults />}
+        />
 
-      {/* Waiting and Rules dynamic routing */}
-      <Route
-        path="/rules/:roundId"
-        element={
+        {/* Round-1 */}
+        <Route
+          path="round-one"
+          element={<RoundOne />}
+        />
+        {/* Round-2 */}
+        <Route
+          path="round-two-ques-one"
+          element={<QuesOne />}
+        />
+        <Route
+          path="round-two-ques-one"
+          element={<QuesTwo />}
+        />
+
+        {/* Round-3 */}
+        <Route
+          path="round-three"
+          element={<RoundThree />}
+        />
+
+        {/* Waiting and Rules dynamic routing */}
+        <Route
+          path="rules/:roundId"
+          element={
             <Rules />
-        }
-      />
+          }
+        />
 
-      <Route
-        path="/waiting/:roundId"
-        element={
+        <Route
+          path="waiting/:roundId"
+          element={
             <Waiting />
-        }
-      />
+          }
+        />
+      </Route>
 
-
-      {/* 404 */}
+      {/* khi aur jaega tw apne aap ko idr paega re ladle */}
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

@@ -1,7 +1,16 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <>
+    <form className='m-auto container bg-red-300 h-70 '>
+    {/* <div>hi</div> */}
+    </form>
+    {/* login form */}
+    {/* link for signup */}
+    {/* admin icon */}
+
+    </>
   )
 }
 
